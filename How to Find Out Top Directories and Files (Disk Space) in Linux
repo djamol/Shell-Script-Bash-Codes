@@ -1,0 +1,21 @@
+#How to Find Biggest Files and Directories in Linux
+#du -a /fodler_path | sort -n -r | head -n 5
+#example
+du -a /home | sort -n -r | head -n 5
+
+
+#Find Largest Directories in Linux
+
+# du -a | sort -n -r | head -n 5
+
+#Let us break down the command and see what says each parameter.
+
+#    du command: Estimate file space usage.
+#    a : Displays all files and folders.
+#    sort command : Sort lines of text files.
+#    -n : Compare according to string numerical value.
+#    -r : Reverse the result of comparisons.
+#    head : Output the first part of files.
+#    -n : Print the first ‘n’ lines. (In our case, We displayed first 5 lines).
+
+#Some of you would like to display the above result in human readable format. i.e you might want to display the largest files in KB, MB, or GB.
