@@ -60,16 +60,16 @@ session    required     /lib/security/pam_limits.so
 
 
 
-#Create a LDAP user account
+##Create a LDAP user account
 
 useradd ldapuser
 passwd ldapuser
 
-#Install LDAP server
+##Install LDAP server
 
 yum install 389-ds-base 389-admin
 
-#Configure 389 Directory server
+##Configure 389 Directory server
 
 setup-ds-admin.pl
 
