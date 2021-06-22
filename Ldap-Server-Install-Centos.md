@@ -320,3 +320,10 @@ Restart services:
 systemctl restart dirsrv.target
 systemctl restart dirsrv-admin
 
+ 
+ Test LDAP Server
+
+Now let us test our LDAP Server now for any errors using following command.
+
+ldapsearch -x -b "dc=unixmen,dc=local"
+https://www.unixmen.com/install-and-configure-ldap-server-in-centos-7/
