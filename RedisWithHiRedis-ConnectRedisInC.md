@@ -1,7 +1,7 @@
 Connecting Redis with C Language Client (hiredis) -- Centos/Debian for Redis Experience Series
 Keywords: Redis CentOS yum C
 
-Key word: hiredis, cRedis, redis clients, redis client, C client, Huawei Cloud Distributed Caching Service
+Key word: hiredis, cRedis, redis clients, redis client, C client, C Language, Centos, Debian
 
 Hiredis is a very comprehensive C language version of redis interface library, supporting all commands, pipes and scripts. Huawei cloud distributed caching service Redis version supports hiredis client connection.
 
