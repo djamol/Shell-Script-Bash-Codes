@@ -36,7 +36,8 @@ About the use of hiredis, the official website of redis gives a detailed introdu
 Edit connection demo instances, such as:
 
 vim connRedis.c
-
+````
+```
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -82,32 +83,44 @@ int main(int argc, char **argv) {
      redisFree(conn);
      return 0;
 }
+```
+````
 Exit after saving and compile by executing the following commands:
-
+````
+```
 gcc connRedis.c -o connRedis  -I /usr/local/include/hiredis -lhiredis
-
+```
+````
 If there is an error, you can find the hiredis.h file path and modify the compilation command.
 
 After compiling, an executable connRedis is obtained.
 
 Test the following commands to test the connection:
-
+````
+```
  ./connRedis {redis_ip_address} 6379 {password}
-
+```
+````
 When the following echoes are obtained, demo runs normally:
-
+````
+```
 [root@amolserv]#  ./connRedis 192.168.0.171 6379 Heru+123
 AUTH: OK
 SET: OK
 GET welcome: Hello, DCS for Redis!
 [root@amolserv]# 
-
+```
+````
 Note that if the hiredis library file can not be found by running errors, you can refer to the following, copy the relevant files to the system directory, and add dynamic links.
 
+````
+```
 mkdir /usr/lib/hiredis
 cp /usr/local/lib/libhiredis.so.0.13 /usr/lib/hiredis/
 mkdir /usr/include/hiredis
 cp /usr/local/include/hiredis/hiredis.h /usr/include/hiredis/
 echo '/usr/local/lib' >>/etc/ld.so.conf
 ldconfig
+```
+````
 The location of the so file and. h file above needs to be replaced by the actual file location.
