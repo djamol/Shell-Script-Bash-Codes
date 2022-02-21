@@ -36,7 +36,7 @@ About the use of hiredis, the official website of redis gives a detailed introdu
 Edit connection demo instances, such as:
 
 vim connRedis.c
-
+**argv
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
