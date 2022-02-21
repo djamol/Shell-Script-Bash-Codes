@@ -1,4 +1,4 @@
-Connecting Redis with C Language Client (hiredis) -- Huawei Cloud DCS for Redis Experience Series
+Connecting Redis with C Language Client (hiredis) -- Centos/Debian for Redis Experience Series
 Keywords: Redis CentOS yum C
 
 Key word: hiredis, cRedis, redis clients, redis client, C client, Huawei Cloud Distributed Caching Service
