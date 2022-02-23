@@ -37,7 +37,6 @@ Edit connection demo instances, such as:
 
 vim connRedis.c
 ````
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,13 +46,18 @@ int main(int argc, char **argv) {
      redisContext *conn;
      redisReply *reply;
      if (argc < 3) {
-             printf("Usage: example {instance_ip_address} 6379 {password}\n");
+             printf("Invalid Input\n");
              exit(0);
      }
      const char *hostname = argv[1];
      const int port = atoi(argv[2]);
      const char *password = argv[3];
-     struct timeval timeout = { 1, 500000 }; // 1.5 seconds
+     const char *cmd;
+	cmd = argv[4];
+	if(cmd){
+	printf(" Command Additional : %s\n",cmd);
+	}
+     struct timeval timeout = { 1, 500000 }; 
      conn = redisConnectWithTimeout(hostname, port, timeout);
      if (conn == NULL || conn->err) {
 		if (conn) {
@@ -64,22 +68,25 @@ int main(int argc, char **argv) {
 		}
      exit(1);
      }
-     /* AUTH */
+    /* 
      reply = redisCommand(conn, "AUTH %s", password);
      printf("AUTH: %s\n", reply->str);
      freeReplyObject(reply);
-
-     /* Set */
-     reply = redisCommand(conn,"SET %s %s", "welcome", "Hello, Redis!");
+     */
+     
+     reply = redisCommand(conn,"SET %s %s", "welcome", "C Redis!");
      printf("SET: %s\n", reply->str);
      freeReplyObject(reply);
     
-     /* Get */
      reply = redisCommand(conn,"GET welcome");
      printf("GET welcome: %s\n", reply->str);
      freeReplyObject(reply);
-     
-     /* Disconnects and frees the context */
+    
+if(cmd){
+     reply = redisCommand(conn,cmd);
+     printf("%s: %s\n",cmd, reply->str);
+     freeReplyObject(reply);
+ }
      redisFree(conn);
      return 0;
 }
